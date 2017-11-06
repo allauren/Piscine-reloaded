@@ -6,8 +6,13 @@
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 21:25:13 by allauren          #+#    #+#             */
-/*   Updated: 2017/10/05 21:26:38 by allauren         ###   ########.fr       */
+/*   Updated: 2017/11/06 12:22:31 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define ABS(value) (((value < 0)  ? - (value) : value))
+#ifndef FT_ABS_H
+# define FT_ABS_H
+
+# define ABS(value) (((value < 0)  ? - (value) : value))
+
+#endif

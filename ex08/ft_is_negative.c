@@ -6,7 +6,7 @@
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 00:27:58 by allauren          #+#    #+#             */
-/*   Updated: 2017/10/05 00:31:36 by allauren         ###   ########.fr       */
+/*   Updated: 2017/11/06 12:04:02 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	ft_is_negative(int n)
 {
 	if (n >= 0)
 		ft_putchar('P');
-	else 
+	else
 		ft_putchar('N');
 }

@@ -6,17 +6,15 @@
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 00:33:10 by allauren          #+#    #+#             */
-/*   Updated: 2017/10/05 00:34:48 by allauren         ###   ########.fr       */
+/*   Updated: 2017/11/06 15:22:44 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
 void	ft_swap(int *a, int *b)
 {
-	int *temp;
+	int temp;
 
-	*temp = *a;
+	temp = *a;
 	*a = *b;
-	*b = *temp;
+	*b = temp;
 }

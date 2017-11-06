@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/05 21:27:06 by allauren          #+#    #+#             */
-/*   Updated: 2017/10/05 21:35:30 by allauren         ###   ########.fr       */
+/*   Created: 2017/10/05 22:03:01 by allauren          #+#    #+#             */
+/*   Updated: 2017/11/06 12:31:29 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_point.h"
-
-void		set_point(t_point *point)
+int		ft_count_if(char **tab, int (*f)(char*))
 {
-	point->x = 42;
-	point->y = 21;
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	while (tab[i])
+	{
+		if ((*f)(tab[i]) == 1)
+			count++;
 	}
-
-
-
-int main(int argc, const char *argv[])
-{
-		t_point	point;
-
-	set_point(&point);
-	return 0;
+	return (count);
 }
-

@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/05 18:09:32 by allauren          #+#    #+#             */
-/*   Updated: 2017/11/06 12:17:00 by allauren         ###   ########.fr       */
+/*   Created: 2017/11/06 13:01:24 by allauren          #+#    #+#             */
+/*   Updated: 2017/11/06 15:04:56 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
-void	ft_putchar(char c);
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#define BUF_SIZE 4096
 
 void	ft_putstr(char *str)
 {
@@ -21,43 +23,32 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		write(1, &str[i], 1);
 		i++;
 	}
-}
-
-int		ft_strcmp(char *s1, char *s2)
-{
-	int i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
 int		main(int argc, char *argv[])
 {
-	char	*temp;
+	int		fd;
+	char	buf[BUF_SIZE + 1];
+	int		ret;
 
-	argc = 1;
-	while (argv[argc])
+	if (argc == 2)
 	{
-		if (ft_strcmp(argv[argc], argv[argc - 1]) < 0)
+		if ((fd = open(argv[1], O_RDONLY)) < 0)
+			return (0);
+		while ((ret = read(fd, buf, BUF_SIZE)) > 0)
 		{
-			temp = argv[argc - 1];
-			argv[argc - 1] = argv[argc];
-			argv[argc] = temp;
-			argc = 0;
+			buf[ret] = '\0';
+			ft_putstr(buf);
 		}
-		argc++;
+		if (close(fd) < 0)
+			return (0);
 	}
-	argc = 1;
-	while (argv[argc - 1])
-	{
-		ft_putstr(argv[argc - 1]);
-		ft_putchar('\n');
-		argc++;
-	}
+	else if (argc > 2)
+		write(1, "Too many arguments\n", 20);
+	else
+		write(1, "File name missing.\n", 19);
 	return (0);
 }
