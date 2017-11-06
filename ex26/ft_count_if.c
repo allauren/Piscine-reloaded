@@ -6,7 +6,7 @@
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 22:03:01 by allauren          #+#    #+#             */
-/*   Updated: 2017/11/06 12:31:29 by allauren         ###   ########.fr       */
+/*   Updated: 2017/11/06 16:16:13 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_count_if(char **tab, int (*f)(char*))
 	{
 		if ((*f)(tab[i]) == 1)
 			count++;
+		i++;
 	}
 	return (count);
 }

@@ -6,8 +6,8 @@
 #    By: allauren <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/06 11:58:34 by allauren          #+#    #+#              #
-#    Updated: 2017/11/06 11:58:51 by allauren         ###   ########.fr        #
+#    Updated: 2017/11/06 15:54:06 by allauren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-ifconfig -a | grep ether | cut -d ' ' -f2 | cat -e
+ifconfig -a | grep ether | cut -d ' ' -f2

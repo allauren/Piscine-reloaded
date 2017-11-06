@@ -6,7 +6,7 @@
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 13:01:24 by allauren          #+#    #+#             */
-/*   Updated: 2017/11/06 15:04:56 by allauren         ###   ########.fr       */
+/*   Updated: 2017/11/06 17:09:33 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int		main(int argc, char *argv[])
 			return (0);
 	}
 	else if (argc > 2)
-		write(1, "Too many arguments\n", 20);
+		write(2, "Too many arguments.\n", 20);
 	else
-		write(1, "File name missing.\n", 19);
+		write(2, "File name missing.\n", 19);
 	return (0);
 }

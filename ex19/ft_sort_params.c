@@ -6,7 +6,7 @@
 /*   By: allauren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 18:09:32 by allauren          #+#    #+#             */
-/*   Updated: 2017/11/06 12:17:00 by allauren         ###   ########.fr       */
+/*   Updated: 2017/11/06 16:08:01 by allauren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,27 @@ int		main(int argc, char *argv[])
 {
 	char	*temp;
 
-	argc = 1;
-	while (argv[argc])
+	if (argc > 1)
 	{
-		if (ft_strcmp(argv[argc], argv[argc - 1]) < 0)
+		argc = 2;
+		while (argv[argc])
 		{
-			temp = argv[argc - 1];
-			argv[argc - 1] = argv[argc];
-			argv[argc] = temp;
-			argc = 0;
+			if (ft_strcmp(argv[argc], argv[argc - 1]) < 0)
+			{
+				temp = argv[argc - 1];
+				argv[argc - 1] = argv[argc];
+				argv[argc] = temp;
+				argc = 1;
+			}
+			argc++;
 		}
-		argc++;
-	}
-	argc = 1;
-	while (argv[argc - 1])
-	{
-		ft_putstr(argv[argc - 1]);
-		ft_putchar('\n');
-		argc++;
+		argc = 1;
+		while (argv[argc])
+		{
+			ft_putstr(argv[argc]);
+			ft_putchar('\n');
+			argc++;
+		}
 	}
 	return (0);
 }
